@@ -1,0 +1,19 @@
+<div class='wrapper'>
+  <div class='header-wrapper'>
+    <h1 class="home-title">Shopping List</h1>
+    <h2 class="home-subtitle">by SPORK</h2>
+  </div>
+  <div class="display-wrapper">
+    {{#each users}}
+    <span class="user-wrapper">
+      <span>
+  
+      <image class="user-icon" src="/user-icon.png" alt="icon image" />
+      <figcaption class="caption"> {{name}}'s Shopping list</figcaption>
+      <a href="/home/selected/{{id}}" class="link-btn">View list</a>
+  
+      </span>
+    </span>
+    {{/each}}
+  </div>
+</div>

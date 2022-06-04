@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Bob",
+      "list": [
+        "milk",
+        "cereal",
+        "bread",
+        "flour"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Tony",
+      "list": []
+    }
+  ]
+}

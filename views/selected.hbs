@@ -1,0 +1,29 @@
+<div class='wrapper'>
+  <h2 class="shoplist-title">Shop checklist</h2>
+  <a class="link-btn" href="/home">Return to Main menu</a>
+  <div class='shoppingList-wrapper'>
+    <span class="shoplist-span">
+      <image class="user-icon" src="/user-icon.png" alt="icon image" />
+    </span>
+  </div>
+  
+  <form class="form" action="/home/selected/{{id}}" method="post">
+    <div class="entry-wrapper">
+      {{!-- <span class="entry-span"> --}}
+        <input class="entry-box" type="text" name="newItem" class="form-control" placeholder="Add a new item">
+        <input class="submit-btn" type="submit" name="" value="Add">
+      </span>
+    </div>
+  </form>
+
+<div class ='shoppingList-wrapper'>
+  <span class="list-span">
+    <ul class= "items-list">
+{{#each list}} 
+<li>{{this}}</li>
+{{/each}}
+
+  </ul>
+    </span>
+</div>
+</div>
