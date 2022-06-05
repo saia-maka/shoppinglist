@@ -10,15 +10,15 @@
     "lint": "eslint",
     "test": "jest --watchAll"
   },
-  "homepage": "https://github.com/matai-2022/shoppingList",
+  "homepage": "https://github.com/saia-maka/shoppinglist",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/matai-2022/shoppingList"
+    "url": "git+https://github.com/saia-maka/shoppinglist"
   },
   "keywords": [],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/matai-2022/shoppingList/issues"
+    "url": "https://github.com/saia-maka/shoppinglist/issues"
   },
   "dependencies": {
     "express": "^4.17.2",
