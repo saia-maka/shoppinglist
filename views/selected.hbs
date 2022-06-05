@@ -12,18 +12,22 @@
       {{!-- <span class="entry-span"> --}}
         <input class="entry-box" type="text" name="newItem" class="form-control" placeholder="Add a new item">
         <input class="submit-btn" type="submit" name="" value="Add">
-      </span>
+      {{!-- </span> --}}
     </div>
   </form>
 
-<div class ='shoppingList-wrapper'>
-  <span class="list-span">
-    <ul class= "items-list">
-{{#each list}} 
-<li>{{this}}</li>
-{{/each}}
-
-  </ul>
+  <div class ='shoppingList-wrapper'>
+    <span class="list-span">
+      <ul class= "items-list">
+        <form method="POST" action="/home/selected/{{id}}/delete/{{#each list}}{{this}}{{/each}}">
+          {{#each list}} 
+            <li>{{this}}</li>
+            <button name="{{this}}" type="submit">Remove {{this}}</button>
+            <br><br>
+          {{/each}}
+        </form>
+      </ul>
     </span>
-</div>
+  </div>
+
 </div>

@@ -36,7 +36,7 @@ router.get('/home/selected/:id', async (req, res) => {
     //   name: matchData.name,
     //   list: matchData.list,
     // }
-     res.render('selected', matchData)
+    res.render('selected', matchData)
   } catch (err) {
     console.error('get selected request invalid ', err)
   }
@@ -76,5 +76,46 @@ router.post('/home/selected/:id', async (req, res) => {
     return res.redirect('/home/selected/' + req.params.id)
   } catch (err) {
     console.error('error')
+  }
+})
+
+router.post('/home/selected/:id/delete/:item', async (req, res) => {
+  try {
+    let rawData = await fsPromises.readFile(filepath, 'utf-8')
+    let data = JSON.parse(rawData)
+    //matchData
+    let matchData = data.users.find(
+      (users) => users.id === Number(req.params.id)
+    )
+    console.log(matchData, ' this is original matchdata') //original list
+
+    let deletedItem = Object.keys(req.body)
+    console.log(deletedItem, ' selected item to delete') //item to delete
+    
+    let newListData = matchData.list.filter(item => item != deletedItem) //create new list
+    console.log(newListData, ' this is new list')
+
+    // console.log(req.params.id, ' this is id')
+
+    let updatedUser = data.users.forEach((user) => {
+      if (user.id == req.params.id) {
+        user.id = matchData.id
+        user.name = matchData.name
+        user.list = newListData
+      }
+    })
+    console.log(matchData, ' this is new matchdata')
+
+    let updatedList = JSON.stringify(data, null, 2) // format data to json file
+
+    await fsPromises.writeFile('./data.json', updatedList, 'utf-8') // re write to data.json file
+
+    console.log(matchData, ' successfully write/update data.json file')
+
+    res.redirect(`/home/selected/${req.params.id}`)
+
+
+  } catch (err) {
+    console.error('delete post error ', err)
   }
 })
